@@ -1,0 +1,36 @@
+.wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table{
+    text-align: center;
+    position: relative;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+table tr:nth-child(even){
+    background-color: rgba(128, 128, 128, 0.407);
+}
+
+td, th{
+    border: 2px solid black;
+    padding: 15px 100px;
+}
+
+th {
+    font-size: 30px;
+    background-color: rgb(56 54 54);
+    color: white;
+}
+
+.type{
+    text-align: left;
+}
+
+.tabl{
+    font-size: 30px;
+}

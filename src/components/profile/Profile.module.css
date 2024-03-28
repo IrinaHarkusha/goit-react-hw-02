@@ -1,18 +1,63 @@
 .wrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding-top: 20px;
+    border: 3px solid grey;
+    border-radius: 10px;
+    width: 590px;
 }
-
-.userphoto{
+.userImg{
     border-radius: 50%;
-    background-color: white;
+    background-color: grey;
+    width:220px;
+    height: auto;
+    margin: 0 auto 25px;
 }
 
-.name_user{
-    font-size: 56px;
+.name{
+    text-align: center;
+    font-size: 44px;
+    letter-spacing: normal;
+    font-weight: 700;
+    padding-bottom: 10px;
 }
 
-.text{}
+.text{
+    font-size: 40px;
+    text-align: center;
+    color: rgba(128, 128, 128, 0.577);
+}
+.wrap{
+    width: 100%;
+}
+.list{
+    display: flex; 
+    margin-top: 20px;
+    background-color: rgba(128, 128, 128, 0.401);
+    border-top: 3px solid grey;
+    list-style: none;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: calc(100% / 3);
+    border-right: 3px solid grey;
+}
+.card:nth-child(3){
+    border-right: none;
+}
 
-.title{}
+.title{
+    font-size: 35px;
+}
 
-.numbers{}
+.numbers{
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: normal;
+}

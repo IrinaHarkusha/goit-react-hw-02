@@ -1,0 +1,36 @@
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+.user_img{
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+}
+
+.name{
+    font-size: 40px;
+    text-align: center;
+}
+
+.status{
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+
+}
+
+
+
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
