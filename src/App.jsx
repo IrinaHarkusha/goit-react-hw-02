@@ -1,31 +1,43 @@
-import Profile from "./components/profile/Profile";
-import FriendList from "./components/friendList/FriendList";
-import TransactionHistory from "./components/transactionHistory/TransactionHistory";
-import userData from "./assets/userData.json"
-import friends from "./assets/friends.json"
-import transactions from "./assets/transactions.json"
 import "modern-normalize"
-import "./index.css"
+import "./App.css"
+import Description from "./components/description/Description";
+import Options from "./components/options/Options";
+import Feedback from "./components/feedback/Feedback";
+import {useEffect, useState} from "react"
+import Notification from "./components/notification/Notification";
+
+const data = {good: 0, neutral: 0, bad: 0}
 
 
+function App () {
+  const [state, setState] = useState(() => {
+    const savedData = JSON.parse(window.localStorage.getItem("todo-data"));
+    if (savedData) {
+      return savedData;
+    } else {
+      return data;
+    }});
 
+  useEffect(() => window.localStorage.setItem('todo-data', JSON.stringify(state)), [state]);
+  
 
-const App = () => {
+  const handleVote = value => {
+    setState(prev => ({...prev, [value]: prev[value] + 1 }))
+  }
+  const handleDelete = () => {
+    setState({good: 0, neutral: 0, bad: 0})
+  }
 
+  const totalSalary = state.good + state.neutral + state.bad
+  const positive = Math.round((state.good / totalSalary) * 100)
+ 
   return (
-    <>
-      <Profile
-        name={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        image={userData.avatar}
-        stats={userData.stats}
-      />
-      <FriendList friends={friends}
-      />
-      <TransactionHistory items={transactions} />
-    </>
+    <div className="container">
+      <Description />
+      <Options handleVote={handleVote} handleDelete={handleDelete} totalSalary={totalSalary} />
+       {totalSalary ? <Feedback totalSalary={totalSalary}  positive={positive} state={state} /> : <Notification/>} 
+    </div>
   );
-};
+}
 
 export default App
