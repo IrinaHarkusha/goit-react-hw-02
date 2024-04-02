@@ -28,14 +28,14 @@ function App () {
     setState({good: 0, neutral: 0, bad: 0})
   }
 
-  const totalSalary = state.good + state.neutral + state.bad
-  const positive = Math.round((state.good / totalSalary) * 100)
+  const totalFeedback = state.good + state.neutral + state.bad
+  const positive = Math.round((state.good / totalFeedback) * 100)
  
   return (
     <div className="container">
       <Description />
-      <Options handleVote={handleVote} handleDelete={handleDelete} totalSalary={totalSalary} />
-       {totalSalary ? <Feedback totalSalary={totalSalary}  positive={positive} state={state} /> : <Notification/>} 
+      <Options handleVote={handleVote} handleDelete={handleDelete} totalFeedback={totalFeedback} />
+       {totalFeedback ? <Feedback totalFeedback={totalFeedback}  positive={positive} state={state} /> : <Notification/>} 
     </div>
   );
 }
